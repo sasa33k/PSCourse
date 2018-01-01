@@ -1,0 +1,20 @@
+pyinstaller
+a python package that converts python code to an binary executable
+.exe .app linux..
+
+console app
+e.g. in PowerShell
+pyinstaller main.py
+pyinstaller --onefile main.py    # dist --> have one main.exe only... very big due to basic packages requred for pyinstaller><
+
+dist/main
+main.exe
+
+build
+
+
+
+
+Setup Wizard for windows (application)
+- Inno Setup
+

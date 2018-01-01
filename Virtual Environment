@@ -1,0 +1,21 @@
+# Building virtual environment - to run different versions of python / django on the same machine
+
+# installing the virtualenv package
+pip install virtualenv
+
+# creating
+
+virtualenv <env_name>
+virtualenv --python=python2.7 <env_name>  # specify python version
+
+# keep all v env in one folder is ok (sub folder)
+
+
+# activate the virtual environment
+source <path>/<env_name>/bin/activate
+
+#prompt
+(<env_name>) PythonXX $
+
+deactivate
+

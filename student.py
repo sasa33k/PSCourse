@@ -3,10 +3,15 @@ students2 = []
 
 class Student2:
     # class attributes
+    """
+    Class description
+    :param student_id integer - optional Student ID
+    """
     school_name = "Elementary School"
 
-    def __init__(self, name, student_id=0):  # instance attributes
+    def __init__(self, name, last_name, student_id=0):  # instance attributes
         self.name = name
+        self.last_name = last_name
         self.student_id = student_id
         students2.append(self)
 
