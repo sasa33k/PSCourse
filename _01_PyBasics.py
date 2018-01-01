@@ -1,3 +1,61 @@
+"""
+REPL : read evaluate print & loop
+
+Strong type system: there is no implicit type conversion (except bool)
+Dynamic type system: object types are only resolved at runtime
+
+Scopes: contexts in which named references can be looked up
+Local (current function), enclosing,  Global (top-level), Built-in
+Python named scopes : LEGB
+
+type()
+dir()
+words.fetch_words.__name__  ==> fetch_words
+words.fetch_words.__doc__  ==> comment in docstring
+
+x = 5
+x
+3*x
+_*2 # evaluated values
+
+prefer 4 spaces indented
+comment 2 space # space XXX
+
+import math
+help(math)
+from math import factorial as fac  # rename the function name.. for simplicity
+/ # floating point divisor
+// # integer divisor
+2**31 - 1 # signed integer maximum in other programing language 2 to the power 31
+# python limit only by memory of computer
+len(str(fac(n)))
+
+int(-3.5) # rounding towards zero ==> -3
+int("10000",3)  # base 3 ==> 81
+
+3e8 ==> 300000000.0
+
+nan, inf # not a num / infinity
+
+a = None
+a is None ==> True
+
+bool(0) ==> False
+bool([]) ==> False
+
+== != < > <= >=
+-= +=
+
+elif (else if)
+
+control + D ==> exit the REPL
+ctrl+Z on windows
+
+ctrl-C interrupt execution to create a KeyboardInterrupt execution
+
+
+"""
+
 print("Hello World!\n")
 
 c = 24.21
@@ -16,6 +74,15 @@ print(str(int(add_num(c, d))) + 'aa')
 ' '.isalpha
 ' '.isdigit
 ' '.split("'")'''
+# back slash escape \\
+# raw string (what u see wt u get) : r'path\fs\f'
+# str encode to bytes decode to str ... d = b'some bytes'
+# BYTE = data.encode('utf-8')
+# STR = BYTE.decode('utf-8')
+# STR = data
+print('a\\b')
+print(r'a\b')
+
 Str1 = "str name"
 Str2 = "str b"
 print("hi {0}. I am {1}".format(Str1, Str2))
@@ -47,6 +114,13 @@ print(Lst[1:-1])  # slice from index 1 to last-1
 del Lst[-1]
 print(Lst)
 print("\n")
+"""
+list("char")
+['c', 'h', 'a', 'r']
+"""
+
+
+
 
 # loops
 for name in Lst:
@@ -70,7 +144,15 @@ while x < 10
 while True: break
 '''
 
+while True:
+    response = input()
+    print(int(response))
+    if int(response) % 7 == 0:
+        break
+
 # Dictionaries
+# dictionaries, mutable mapping of keys to values
+
 student = {
     "name": "Mark",
     "student_id": 1231,
@@ -100,3 +182,48 @@ bytes & bytearray
 '''
 print(set([3, 2, 3, 1, 5]))  # ordered, remove duplicates
 
+
+"""
+id
+
+variable a=100
+create an integer object 100, "a" pointing name reference to it
+id(a)
+b = [1,2,3]
+s = b
+pointing s reference to b
+change s[0]=10, b also being changed
+
+test:
+b is s  # identity : same object
+b == s  # value equals
+
+
+
+"""
+
+
+def banner(message, border='-'):
+    line = border * len(message)  # repetition of string
+    print(line)
+    print(message)
+    print(line)
+
+banner("la la la", "*")
+
+# default argument values are evaluated when def is evaluated
+import time
+time.ctime()
+def show_default(arg=time.ctime()):
+    print(arg)
+
+
+def add_spam(menu=[]):  # WRONG~! keep appending when it is being called
+    menu.append('spam')
+    return menu
+
+def add_spam2(menu=None):
+    if menu is None:
+        menu = []
+    menu.append('spam')
+    return menu

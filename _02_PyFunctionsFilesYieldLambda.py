@@ -54,6 +54,51 @@ def double(x):
     return x * 2
 
 
+
+"""
+Generators in Python (use "yield" at least once)
+- iterators, laxily evaluated ("next" on demand), can model infinite sequence, are composable into pipelines (for natural stream processing)
+"""
+def gen123():
+    yield 3
+    yield 2
+    yield 4
+
+g = gen123()
+next(g)  # 3
+next(g)  # 2
+
+for v in gen123():
+    print(v)
+
+"""
+Stateful generators - complex control flow, lazy evaluation
+e.g. get first 3 unique numbers --> exit once found
+"""
+(x*x for x in range (1,101))  # generator, use once only
+list(x*x for x in range (1,101))
+sum(x*x for x in range (1,101))  # no need additional ()
+
+# sum(x*x for x in range (1,101) if is_prime(x))  ]
+
+any([False, False, True])
+all([False, False, True])
+
+#zip in tuples
+sun = [1,2]
+mon = [3,4]
+
+for item in zip(sun,mon):
+    print(item)
+
+"""
+(1, 3)
+(2, 4)
+"""
+for sun,mon in zip(sun,mon):
+    print((sun+mon)/2)
+    #chain
+
 # add_student("Mark",332)
 student_list = get_students_titlecase()
 
